@@ -27,7 +27,7 @@ const ProductScheema = new mongoose.Schema(
       required: [true, "Please provide the product category"],
       enum: ["office", "kitchen", "bedroom"],
     },
-    compnay: {
+    company: {
       type: String,
       required: [true, "Please provide the product company"],
       enum: {
@@ -37,6 +37,7 @@ const ProductScheema = new mongoose.Schema(
     },
     colors: {
       type: [String],
+      default: ["#222"],
       required: true,
     },
     featured: {
