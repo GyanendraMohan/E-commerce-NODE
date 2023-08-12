@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const ReviewSchema = mongoose.Schema(
   {
-    ratings: {
+    rating: {
       type: Number,
       min: 1,
       max: 5,
@@ -19,12 +19,12 @@ const ReviewSchema = mongoose.Schema(
       required: [true, "Please Provide review text"],
     },
     user: {
-      type: mongoose.Scheema.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "User",
       required: true,
     },
     product: {
-      type: mongoose.Scheema.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "Product",
       required: true,
     },
