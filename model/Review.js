@@ -35,4 +35,4 @@ const ReviewSchema = mongoose.Schema(
 //compound index
 ReviewSchema.index({ product: 1, user: 1 }, { unique: true });
 
-module.exports = mongoose.model("Review", ReviewSchema);
+module.exports = mongoose.model("review", ReviewSchema);
