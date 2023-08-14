@@ -59,11 +59,11 @@ const ProductScheema = new mongoose.Schema(
     },
     user: {
       type: mongoose.Types.ObjectId,
-      ref: "User",
+      ref: "user",
       required: true,
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Product", ProductScheema);
+module.exports = mongoose.model("product", ProductScheema);
