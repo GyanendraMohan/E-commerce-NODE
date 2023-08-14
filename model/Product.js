@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ProductScheema = new mongoose.Schema(
+const ProductSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -63,7 +63,14 @@ const ProductScheema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-module.exports = mongoose.model("product", ProductScheema);
+ProductSchema.virtual("review", {
+  ref: "review",
+  localField: "_id",
+  foreignField: "product",
+  justOne: false,
+});
+
+module.exports = mongoose.model("product", ProductSchema);
