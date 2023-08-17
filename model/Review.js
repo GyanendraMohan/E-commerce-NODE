@@ -35,4 +35,16 @@ const ReviewSchema = mongoose.Schema(
 //compound index
 ReviewSchema.index({ product: 1, user: 1 }, { unique: true });
 
+ReviewSchema.statics.calculateAverageRating = async function (productId) {
+  console.log(productId);
+};
+
+ReviewSchema.post("save", async function () {
+  await this.constructor.calculateAverageRating(this.productId);
+});
+
+ReviewSchema.post("remove", async function () {
+  await this.constructor.calculateAverageRating(this.productId);
+});
+
 module.exports = mongoose.model("review", ReviewSchema);
